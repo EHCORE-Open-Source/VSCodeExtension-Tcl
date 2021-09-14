@@ -1,0 +1,54 @@
+{
+	"name": "tcl-support-package",
+	"displayName": "Tcl package",
+	"description": "Tcl support",
+	"version": "0.0.1",
+	"publisher": "itri-ehcore",
+	"private": false,
+	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/EHCORE-Open-Source/vscode_tcl.git"
+	},
+	"configurationDefaults": {
+        "[tcl]": {
+            "editor.semanticHighlighting.enabled": true
+        }
+    },
+	"engines": {
+		"vscode": "^1.43.0"
+	},
+	"categories": [
+		"Programming Languages"
+	],
+	"activationEvents": [
+		"onLanguage:tcl"
+	],
+	"main": "./out/extension.js",
+	"contributes": {
+		"languages": [
+			{
+				"id": "tcl",
+				"extensions": [
+					".tcl"
+				],
+				"configuration": "./tcl.language-configuration.json"
+			}
+		],
+		"grammars": [{
+            "language": "tcl",
+            "scopeName": "source.tcl",
+            "path": "./syntaxes/tcl.tmLanguage.json"
+        }],
+        "snippets": [
+            {
+                "language": "tcl",
+                "path": "./snippets/tcl.snippets.json"
+            }
+        ]
+	},
+	"devDependencies": {
+		"@types/node": "^16.9.1",
+		"@types/vscode": "^1.60.0"
+	}
+}
