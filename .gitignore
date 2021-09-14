@@ -1,4 +1,7 @@
+# Ignore folders
 out
 node_modules
 .vscode-test/
+# Ignore files
+package-lock.json
 *.vsix
