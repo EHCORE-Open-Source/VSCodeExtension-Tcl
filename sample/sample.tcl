@@ -5,7 +5,10 @@ backslash test \
 test1 \
 
 0 1 2 2.3 3.4 
- 
+
+puts \x22 \177 \u20AC \043
+puts "strwef\u20ACefe\177fefef\nefefe\043fe\x22fing"
+
 "string"
 "string"
 
