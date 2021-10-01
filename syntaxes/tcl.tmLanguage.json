@@ -1,80 +1,80 @@
 {
-	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
-	"name": "tcl",
-	"patterns": [
-		{
-			"include": "#keywords"
-		},
-		{
-			"include": "#strings"
-		},
-		{
-			"include": "#escape"
-		},
-		{
-			"include": "#comment"
-		}
-	],
-	"repository": {
-		"keywords": {
-			"patterns": [
-				{
-					"name": "keyword.control.tcl",
-					"match": "\\b(after|append|apply|argc|argv|argv0|array|auto_execok|auto_import|auto_load|auto_mkindex|auto_path|auto_qualify|auto_reset|bgerror|binary|break|catch|cd|chan|clock|close|concat|continue|coroutine|dde|dict|else|encoding|env|eof|error|errorCode|errorInfo|eval|exec|exit|expr|fblocked|fconfigure|fcopy|file|fileevent|filename|flush|for|foreach|format|gets|glob|global|history|http|if|incr|info|interp|join|lappend|lassign|lindex|linsert|list|llength|lmap|load|lrange|lrepeat|lreplace|lreverse|lsearch|lset|lsort|mathfunc|mathop|memory|msgcat|my|namespace|next|nextto|oo::class|oo::copy|oo::define|oo::objdefine|oo::object|open|package|parray|pid|pkg::create|pkg_mkIndex|platform|platform::shell|proc|puts|pwd|re_syntax|read|refchan|regexp|registry|regsub|rename|return|safe|scan|seek|self|set|socket|source|split|string|subst|switch|tailcall|Tcl|tcl::prefix|tcl_endOfWord|tcl_findLibrary|tcl_interactive|tcl_library|tcl_nonwordchars|tcl_patchLevel|tcl_pkgPath|tcl_platform|tcl_precision|tcl_rcFileName|tcl_startOfNextWord|tcl_startOfPreviousWord|tcl_traceCompile|tcl_traceExec|tcl_version|tcl_wordBreakAfter|tcl_wordBreakBefore|tcl_wordchars|tcltest|tell|throw|time|timerate|tm|trace|transchan|try|unknown|unload|unset|update|uplevel|upvar|variable|vwait|while|yield|yieldto|zlib)\\b"
-				}
-			]
-		},
-		"escape": {
-			"patterns": [
-				{
-					"comment": "backslash",
-					"name": "constant.character.escape.tcl",
-					"captures": {
-						"0": {
-							"patterns": [
-								{
-									"comment": "backslash substitution",
-									"name": "strong",
-									"match": "\\\\([01]?[0-7]{1,2}|x[[:xdigit:]]{1,2}|u[[:xdigit:]]{1,4}|[abfnrtv])"
-								}
-							]
-						}
-					},
-					"match": "\\\\([01]?[0-7]{1,2}|x[[:xdigit:]]{1,2}|u[[:xdigit:]]{1,4}|[[:graph:]])"
-				}
-			]
-		},
-		"comment": {
-			"patterns": [
-				{
-					"name": "comment.line",
-					"match": "(^|;)\\s*#.*\n?$"
-				},
-				{
-					"name": "constant.character.escape.backslash",
-					"match": "\\\\"
-				},
-				{
-					"name": "constant.numeric.tcl",
-					"match": "[0-9]+"
-				}
-			]
-		},
-		"strings": {
-			"patterns": [
-				{
-					"comment": "double quotes",
-					"begin": "\\\"",
-					"end": "\\\"",
-					"name": "string.quoted.double.tcl",
-					"patterns": [
-						{
-							"include": "#escape"
-						}
-					]
-				}
-			]
-		}
-	},
-	"scopeName": "source.tcl"
+    "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+    "name": "tcl",
+    "patterns": [
+        {
+            "include": "#keywords"
+        },
+        {
+            "include": "#strings"
+        },
+        {
+            "include": "#escape"
+        },
+        {
+            "include": "#comment"
+        }
+    ],
+    "repository": {
+        "keywords": {
+            "patterns": [
+                {
+                    "name": "keyword.control.tcl",
+                    "match": "\\b(after|append|apply|argc|argv|argv0|array|auto_execok|auto_import|auto_load|auto_mkindex|auto_path|auto_qualify|auto_reset|bgerror|binary|break|catch|cd|chan|clock|close|concat|continue|coroutine|dde|dict|else|encoding|env|eof|error|errorCode|errorInfo|eval|exec|exit|expr|fblocked|fconfigure|fcopy|file|fileevent|filename|flush|for|foreach|format|gets|glob|global|history|http|if|incr|info|interp|join|lappend|lassign|lindex|linsert|list|llength|lmap|load|lrange|lrepeat|lreplace|lreverse|lsearch|lset|lsort|mathfunc|mathop|memory|msgcat|my|namespace|next|nextto|oo::class|oo::copy|oo::define|oo::objdefine|oo::object|open|package|parray|pid|pkg::create|pkg_mkIndex|platform|platform::shell|proc|puts|pwd|re_syntax|read|refchan|regexp|registry|regsub|rename|return|safe|scan|seek|self|set|socket|source|split|string|subst|switch|tailcall|Tcl|tcl::prefix|tcl_endOfWord|tcl_findLibrary|tcl_interactive|tcl_library|tcl_nonwordchars|tcl_patchLevel|tcl_pkgPath|tcl_platform|tcl_precision|tcl_rcFileName|tcl_startOfNextWord|tcl_startOfPreviousWord|tcl_traceCompile|tcl_traceExec|tcl_version|tcl_wordBreakAfter|tcl_wordBreakBefore|tcl_wordchars|tcltest|tell|throw|time|timerate|tm|trace|transchan|try|unknown|unload|unset|update|uplevel|upvar|variable|vwait|while|yield|yieldto|zlib)\\b"
+                }
+            ]
+        },
+        "escape": {
+            "patterns": [
+                {
+                    "comment": "backslash",
+                    "name": "constant.character.escape.tcl",
+                    "captures": {
+                        "0": {
+                            "patterns": [
+                                {
+                                    "comment": "backslash substitution",
+                                    "name": "strong.escape.tcl",
+                                    "match": "\\\\([01]?[0-7]{1,2}|x[[:xdigit:]]{1,2}|u[[:xdigit:]]{1,4}|[abfnrtv])"
+                                }
+                            ]
+                        }
+                    },
+                    "match": "\\\\([01]?[0-7]{1,2}|x[[:xdigit:]]{1,2}|u[[:xdigit:]]{1,4}|[[:graph:]])"
+                }
+            ]
+        },
+        "comment": {
+            "patterns": [
+                {
+                    "name": "comment.line",
+                    "match": "(^|;)\\s*#.*\n?$"
+                },
+                {
+                    "name": "constant.character.escape.backslash",
+                    "match": "\\\\"
+                },
+                {
+                    "name": "constant.numeric.tcl",
+                    "match": "[0-9]+"
+                }
+            ]
+        },
+        "strings": {
+            "patterns": [
+                {
+                    "comment": "double quotes",
+                    "begin": "\\\"",
+                    "end": "\\\"",
+                    "name": "string.quoted.double.tcl",
+                    "patterns": [
+                        {
+                            "include": "#escape"
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    "scopeName": "source.tcl"
 }
