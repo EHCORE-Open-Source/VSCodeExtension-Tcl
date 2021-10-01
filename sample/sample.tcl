@@ -10,6 +10,7 @@ puts strwef\u20ACefe\477fefef\nefefe\043fe\x22fing
 puts "strwef\u20ACefe\177fefef\nefefe\043fe\x22fing"
 
 puts "\g\x\k\"\'\\\x20Hello\40World!"
+puts [format "%d decimal is %x hex" 255 255]
 
 "string"
 "string"
