@@ -1,6 +1,5 @@
 # Tcl Syntax Highlighting README
 The extension is help to parse Tcl output files *.tcl.
-add submodule.
 ## Features
 > Tip: *.tcl data highlighting.
 ## Requirements
