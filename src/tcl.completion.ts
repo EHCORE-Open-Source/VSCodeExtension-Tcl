@@ -1,5 +1,5 @@
 import * as vscode from 'vscode';
-import json from './tcl.8.6.11.json';
+import json from './tcl.8.6.json';
 interface ICompletionItemContent {
     name: string;
 }

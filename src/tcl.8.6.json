@@ -1,6 +1,6 @@
 {
     "program": "Tcl",
-    "version": "8.6.11",
+    "version": "8.6",
     "commands": [
         {
             "name": "after"
