@@ -21,7 +21,9 @@ const legend = (function () {
 })();
 
 export function activate(context: vscode.ExtensionContext) {
-	context.subscriptions.push(vscode.languages.registerDocumentSemanticTokensProvider({ language: 'tcl'}, new DocumentSemanticTokensProvider(), legend));
+	context.subscriptions.push(vscode.languages.registerDocumentSemanticTokensProvider({ language: 'tcl' }, new DocumentSemanticTokensProvider(), legend));
+	context.subscriptions.push(vscode.languages.registerDocumentSymbolProvider({ scheme: "file", language: "tcl" }, new DocumentSymbolProvider()));
+
 }
 
 interface IParsedToken {
@@ -70,10 +72,10 @@ class DocumentSemanticTokensProvider implements vscode.DocumentSemanticTokensPro
 		const regex_if: RegExp = /^(\s*if\s+0\s+{\s*)/g;
 		const regex: RegExp = /^(\s*proc\s+#\s+args\s+{\s*})/gi;
 		//const regex_semi: RegExp = /^(\s*proc\s+#\s+args\s+{\s*})/gi;
-		const regex_comment_proc: RegExp = /^(\s*{#}\s*{)/gi;	
+		const regex_comment_proc: RegExp = /^(\s*{#}\s*{)/gi;
 		const regex_comment_proc_semi: RegExp = /^(\s*{#}\s*\w)/gi;
 		let comment_proc_mark = false;
-		let comment_proc = false;	
+		let comment_proc = false;
 		let comment_mark = false;
 		let comment_proc_semi = false;
 		let comment_proc_mark_semi = false;
@@ -83,8 +85,8 @@ class DocumentSemanticTokensProvider implements vscode.DocumentSemanticTokensPro
 			const line = lines[i];
 			let closeOffset = -1;
 			let openOffset = -1;
-			
-			if(comment_mark) {
+
+			if (comment_mark) {
 				openOffset = -1;
 				closeOffset = line.indexOf('}');
 				if (closeOffset === -1) {
@@ -96,8 +98,7 @@ class DocumentSemanticTokensProvider implements vscode.DocumentSemanticTokensPro
 			}
 			else {
 				const matchObj = line.match(regex_if);
-				if(matchObj === null)
-				{
+				if (matchObj === null) {
 					continue;
 				}
 				openOffset = matchObj[0].length - 1;
@@ -119,15 +120,14 @@ class DocumentSemanticTokensProvider implements vscode.DocumentSemanticTokensPro
 		}
 		//return r;
 		//for proc {#} {}
-        for (let i = 0; i < lines.length; i++) {
+		for (let i = 0; i < lines.length; i++) {
 			const line = lines[i];
 			let closeOffset = -1;
 			let openOffset = -1;
 
-			if(!comment_proc) {
+			if (!comment_proc) {
 				const matchObj = line.match(regex);
-				if(matchObj === null)
-				{
+				if (matchObj === null) {
 					continue;
 				}
 				comment_proc = true;
@@ -141,10 +141,9 @@ class DocumentSemanticTokensProvider implements vscode.DocumentSemanticTokensPro
 				// }
 			}
 			else {
-				if(!comment_proc_mark) {
+				if (!comment_proc_mark) {
 					const matchObj = line.match(regex_comment_proc);
-					if(matchObj === null)
-					{
+					if (matchObj === null) {
 						continue;
 					}
 					openOffset += matchObj[0].length;
@@ -170,47 +169,45 @@ class DocumentSemanticTokensProvider implements vscode.DocumentSemanticTokensPro
 			});
 		}
 
-		    //for proc {#} ;
-			for (let i = 0; i < lines.length; i++) {
-				const line = lines[i];
-				let closeOffset = -1;
-				let openOffset = -1;
-	
-				if(!comment_proc_semi) {
-					const matchObj = line.match(regex);
-					if(matchObj === null)
-					{
+		//for proc {#} ;
+		for (let i = 0; i < lines.length; i++) {
+			const line = lines[i];
+			let closeOffset = -1;
+			let openOffset = -1;
+
+			if (!comment_proc_semi) {
+				const matchObj = line.match(regex);
+				if (matchObj === null) {
+					continue;
+				}
+				comment_proc_semi = true;
+				continue;
+				// openOffset += matchObj[0].length;
+				// //closeOffset = line.indexOf('}', openOffset);
+				// closeOffset = line.indexOf('}', openOffset);
+				// if (closeOffset === -1) {
+				// 	closeOffset = line.length;
+				// 	comment_mark = true;
+				// }
+			}
+			else {
+				if (!comment_proc_mark_semi) {
+					const matchObj = line.match(regex_comment_proc_semi);
+					if (matchObj === null) {
 						continue;
 					}
-					comment_proc_semi = true;
-					continue;
-					// openOffset += matchObj[0].length;
-					// //closeOffset = line.indexOf('}', openOffset);
-					// closeOffset = line.indexOf('}', openOffset);
-					// if (closeOffset === -1) {
-					// 	closeOffset = line.length;
-					// 	comment_mark = true;
-					// }
+					openOffset += matchObj[0].length - 1;
+					comment_proc_mark_semi = true;
+				}
+
+				closeOffset = line.indexOf(';', openOffset);
+				if (closeOffset === -1) {
+					closeOffset = line.length;
 				}
 				else {
-					if(!comment_proc_mark_semi) {
-						const matchObj = line.match(regex_comment_proc_semi);
-						if(matchObj === null )
-						{
-							continue;
-						}
-						openOffset += matchObj[0].length - 1;
-						comment_proc_mark_semi = true;
-					}
-	
-					closeOffset = line.indexOf(';', openOffset);
-					if (closeOffset === -1) {
-						closeOffset = line.length;
-					}
-					else {
-						comment_proc_mark_semi = false;
-					}
+					comment_proc_mark_semi = false;
 				}
+			}
 
 			const tokenData = this._parseTextToken(line.substring(openOffset + 1, closeOffset));
 			r.push({
@@ -226,7 +223,7 @@ class DocumentSemanticTokensProvider implements vscode.DocumentSemanticTokensPro
 
 	}
 
-	
+
 
 	private _parseTextToken(text: string): { tokenType: string; tokenModifiers: string[]; } {
 		const parts = text.split('.');
@@ -234,5 +231,40 @@ class DocumentSemanticTokensProvider implements vscode.DocumentSemanticTokensPro
 			tokenType: parts[0],
 			tokenModifiers: parts.slice(1)
 		};
+	}
+}
+
+class DocumentSymbolProvider implements vscode.DocumentSymbolProvider {
+	private format(cmd: string): string {
+		return cmd.substr(1).toLowerCase().replace(/^\w/, c => c.toUpperCase())
+	}
+	public provideDocumentSymbols(
+		document: vscode.TextDocument,
+		token: vscode.CancellationToken): Promise<vscode.DocumentSymbol[]> {
+		return new Promise((resolve, reject) => {
+			let symbols: vscode.DocumentSymbol[] = [];
+			let nodes = [symbols]
+			let inside_marker = false
+			let symbolkind_marker = vscode.SymbolKind.Field
+
+			for (var i = 0; i < document.lineCount; i++) {
+				var line = document.lineAt(i);
+				let tokens = line.text.split(" ")
+
+				if (line.text.match(/^p/)) {
+					let marker_symbol = new vscode.DocumentSymbol(
+						this.format(tokens[0]) + " " + tokens[1],
+						'Keywords',
+						symbolkind_marker,
+						line.range, line.range)
+					nodes[nodes.length - 1].push(marker_symbol)
+					if (!inside_marker) {
+						nodes.push(marker_symbol.children)
+						inside_marker = true
+					}
+				}
+			}
+			resolve(symbols);
+		});
 	}
 }
