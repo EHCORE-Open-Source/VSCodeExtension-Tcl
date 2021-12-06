@@ -1,2 +1,2 @@
 @echo off
-powershell -noexit "& "".\setup.windows.ps1"""
+powershell -noexit "& '.\setup.windows.ps1'"
