@@ -24,6 +24,15 @@
         ],
         "description": "running time estimation"
     },
+    "uplevel": {
+        "prefix": "uplevel",
+        "body": [
+            "uplevel ${1:level} {",
+            "\t$0",
+            "}"
+        ],
+        "description": "execute a script in a different stack frame"
+    },
     "procedure": {
         "prefix": "proc",
         "body": [
