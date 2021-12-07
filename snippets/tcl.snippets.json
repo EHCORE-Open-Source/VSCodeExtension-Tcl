@@ -21,7 +21,7 @@
        "prefix": "proc",
        "body": [
            "proc ${1:procedureName} {${2:arguments}} {",
-           "\tbody",
+           "\t",
            "}"
        ],
        "description": "Proc Block"

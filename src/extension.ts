@@ -236,7 +236,7 @@ class DocumentSemanticTokensProvider implements vscode.DocumentSemanticTokensPro
 
 class DocumentSymbolProvider implements vscode.DocumentSymbolProvider {
 	private format(cmd: string): string {
-		return cmd.substr(1).toLowerCase().replace(/^\w/, c => c.toUpperCase())
+		return cmd.toLowerCase().replace(/^\w/, c => c.toUpperCase())
 	}
 	public provideDocumentSymbols(
 		document: vscode.TextDocument,
