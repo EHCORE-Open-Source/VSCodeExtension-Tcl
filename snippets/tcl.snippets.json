@@ -63,6 +63,17 @@
         ],
         "description": "if-else statement"
     },
+    "elseif (explicit)": {
+        "prefix": "elseif",
+        "body": [
+            "elseif {",
+            "\t${1:condition}",
+            "} then {",
+            "\t$0",
+            "}"
+        ],
+        "description": "if-else statement"
+    },
     "else": {
         "prefix": "else",
         "body": [
