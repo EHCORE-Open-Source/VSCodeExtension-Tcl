@@ -1,0 +1,477 @@
+{
+    "program": "Tcl",
+    "version": "8.6",
+    "commands": [
+        {
+            "name": "after"
+        },
+        {
+            "name": "append"
+        },
+        {
+            "name": "apply"
+        },
+        {
+            "name": "argc"
+        },
+        {
+            "name": "argv"
+        },
+        {
+            "name": "argv0"
+        },
+        {
+            "name": "array"
+        },
+        {
+            "name": "auto_execok"
+        },
+        {
+            "name": "auto_import"
+        },
+        {
+            "name": "auto_load"
+        },
+        {
+            "name": "auto_mkindex"
+        },
+        {
+            "name": "auto_path"
+        },
+        {
+            "name": "auto_qualify"
+        },
+        {
+            "name": "auto_reset"
+        },
+        {
+            "name": "bgerror"
+        },
+        {
+            "name": "binary"
+        },
+        {
+            "name": "break"
+        },
+        {
+            "name": "catch"
+        },
+        {
+            "name": "cd"
+        },
+        {
+            "name": "chan"
+        },
+        {
+            "name": "clock"
+        },
+        {
+            "name": "close"
+        },
+        {
+            "name": "concat"
+        },
+        {
+            "name": "continue"
+        },
+        {
+            "name": "coroutine"
+        },
+        {
+            "name": "dde"
+        },
+        {
+            "name": "dict"
+        },
+        {
+            "name": "encoding"
+        },
+        {
+            "name": "env"
+        },
+        {
+            "name": "eof"
+        },
+        {
+            "name": "error"
+        },
+        {
+            "name": "errorCode"
+        },
+        {
+            "name": "errorInfo"
+        },
+        {
+            "name": "eval"
+        },
+        {
+            "name": "exec"
+        },
+        {
+            "name": "exit"
+        },
+        {
+            "name": "expr"
+        },
+        {
+            "name": "fblocked"
+        },
+        {
+            "name": "fconfigure"
+        },
+        {
+            "name": "fcopy"
+        },
+        {
+            "name": "file"
+        },
+        {
+            "name": "fileevent"
+        },
+        {
+            "name": "filename"
+        },
+        {
+            "name": "flush"
+        },
+        {
+            "name": "for"
+        },
+        {
+            "name": "foreach"
+        },
+        {
+            "name": "format"
+        },
+        {
+            "name": "gets"
+        },
+        {
+            "name": "glob"
+        },
+        {
+            "name": "global"
+        },
+        {
+            "name": "history"
+        },
+        {
+            "name": "http"
+        },
+        {
+            "name": "if"
+        },
+        {
+            "name": "incr"
+        },
+        {
+            "name": "info"
+        },
+        {
+            "name": "interp"
+        },
+        {
+            "name": "join"
+        },
+        {
+            "name": "lappend"
+        },
+        {
+            "name": "lassign"
+        },
+        {
+            "name": "lindex"
+        },
+        {
+            "name": "linsert"
+        },
+        {
+            "name": "list"
+        },
+        {
+            "name": "llength"
+        },
+        {
+            "name": "lmap"
+        },
+        {
+            "name": "load"
+        },
+        {
+            "name": "lrange"
+        },
+        {
+            "name": "lrepeat"
+        },
+        {
+            "name": "lreplace"
+        },
+        {
+            "name": "lreverse"
+        },
+        {
+            "name": "lsearch"
+        },
+        {
+            "name": "lset"
+        },
+        {
+            "name": "lsort"
+        },
+        {
+            "name": "mathfunc"
+        },
+        {
+            "name": "mathop"
+        },
+        {
+            "name": "memory"
+        },
+        {
+            "name": "msgcat"
+        },
+        {
+            "name": "my"
+        },
+        {
+            "name": "namespace"
+        },
+        {
+            "name": "next"
+        },
+        {
+            "name": "nextto"
+        },
+        {
+            "name": "oo::class"
+        },
+        {
+            "name": "oo::copy"
+        },
+        {
+            "name": "oo::define"
+        },
+        {
+            "name": "oo::objdefine"
+        },
+        {
+            "name": "oo::object"
+        },
+        {
+            "name": "open"
+        },
+        {
+            "name": "package"
+        },
+        {
+            "name": "parray"
+        },
+        {
+            "name": "pid"
+        },
+        {
+            "name": "pkg::create"
+        },
+        {
+            "name": "pkg_mkIndex"
+        },
+        {
+            "name": "platform"
+        },
+        {
+            "name": "platform::shell"
+        },
+        {
+            "name": "proc"
+        },
+        {
+            "name": "puts"
+        },
+        {
+            "name": "pwd"
+        },
+        {
+            "name": "re_syntax"
+        },
+        {
+            "name": "read"
+        },
+        {
+            "name": "refchan"
+        },
+        {
+            "name": "regexp"
+        },
+        {
+            "name": "registry"
+        },
+        {
+            "name": "regsub"
+        },
+        {
+            "name": "rename"
+        },
+        {
+            "name": "return"
+        },
+        {
+            "name": "safe"
+        },
+        {
+            "name": "scan"
+        },
+        {
+            "name": "seek"
+        },
+        {
+            "name": "self"
+        },
+        {
+            "name": "set"
+        },
+        {
+            "name": "socket"
+        },
+        {
+            "name": "source"
+        },
+        {
+            "name": "split"
+        },
+        {
+            "name": "string"
+        },
+        {
+            "name": "subst"
+        },
+        {
+            "name": "switch"
+        },
+        {
+            "name": "tailcall"
+        },
+        {
+            "name": "Tcl"
+        },
+        {
+            "name": "tcl::prefix"
+        },
+        {
+            "name": "tcl_endOfWord"
+        },
+        {
+            "name": "tcl_findLibrary"
+        },
+        {
+            "name": "tcl_interactive"
+        },
+        {
+            "name": "tcl_library"
+        },
+        {
+            "name": "tcl_nonwordchars"
+        },
+        {
+            "name": "tcl_patchLevel"
+        },
+        {
+            "name": "tcl_pkgPath"
+        },
+        {
+            "name": "tcl_platform"
+        },
+        {
+            "name": "tcl_precision"
+        },
+        {
+            "name": "tcl_rcFileName"
+        },
+        {
+            "name": "tcl_startOfNextWord"
+        },
+        {
+            "name": "tcl_startOfPreviousWord"
+        },
+        {
+            "name": "tcl_traceCompile"
+        },
+        {
+            "name": "tcl_traceExec"
+        },
+        {
+            "name": "tcl_version"
+        },
+        {
+            "name": "tcl_wordBreakAfter"
+        },
+        {
+            "name": "tcl_wordBreakBefore"
+        },
+        {
+            "name": "tcl_wordchars"
+        },
+        {
+            "name": "tcltest"
+        },
+        {
+            "name": "tell"
+        },
+        {
+            "name": "throw"
+        },
+        {
+            "name": "time"
+        },
+        {
+            "name": "timerate"
+        },
+        {
+            "name": "tm"
+        },
+        {
+            "name": "trace"
+        },
+        {
+            "name": "transchan"
+        },
+        {
+            "name": "try"
+        },
+        {
+            "name": "unknown"
+        },
+        {
+            "name": "unload"
+        },
+        {
+            "name": "unset"
+        },
+        {
+            "name": "update"
+        },
+        {
+            "name": "uplevel"
+        },
+        {
+            "name": "upvar"
+        },
+        {
+            "name": "variable"
+        },
+        {
+            "name": "vwait"
+        },
+        {
+            "name": "while"
+        },
+        {
+            "name": "yield"
+        },
+        {
+            "name": "yieldto"
+        },
+        {
+            "name": "zlib"
+        }
+    ]
+}
