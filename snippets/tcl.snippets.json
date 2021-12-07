@@ -1,29 +1,80 @@
 {
-   "if snippet": {
-       "prefix": "if",
-       "body": [
-           "if {${1:boolean_expression}} {",
-           "\t$0",
-           "}"
-       ],
-       "description": "If Condition"
+    "if": {
+        "prefix": "if",
+        "body": [
+            "if {${1:boolean_expression}} {",
+            "\t$0",
+            "}"
+        ],
+        "description": "if-else statement"
     },
-   "else snippet": {
+    "if-else": {
+        "prefix": "if",
+        "body": [
+            "if {${1:condition}} {",
+            "\t$2",
+            "} else {",
+            "\t$0",
+            "}"
+        ],
+        "description": "if-else statement"
+    },
+    "if-elseif-else": {
+        "prefix": "if",
+        "body": [
+            "if {${1:condition}} {",
+            "\t$2",
+            "} elseif {${3:condition}} {",
+            "\t$4",
+            "} else {",
+            "\t$0",
+            "}"
+        ],
+        "description": "if-else statement"
+    },
+    "elseif": {
+        "prefix": "elseif",
+        "body": [
+            "elseif {${1:condition}} {",
+            "\t$0",
+            "}"
+        ],
+        "description": "elseif statement"
+    },
+    "else": {
         "prefix": "else",
         "body": [
             "else {",
             "\t$0",
             "}"
         ],
-        "description": "Else Block"
+        "description": "else statement"
     },
-   "proc snippet": {
-       "prefix": "proc",
-       "body": [
-           "proc ${1:procedureName} {${2:arguments}} {",
-           "\t",
-           "}"
-       ],
-       "description": "Proc Block"
-   }
+    "for loop (general)": {
+        "prefix": "for",
+        "body": [
+            "for {set ${1:i} 0} {${1:i} < ${2:endCondition}} {incr ${1:i}} {",
+            "\t$0",
+            "}"
+        ],
+        "description": "for loop iteration"
+    },
+    "for loop (standard)": {
+        "prefix": "for",
+        "body": [
+            "for {${1:initialization}} {${2:condition}} {${3:increment}} {",
+            "\t$0",
+            "}"
+        ],
+        "description": "for loop iteration"
+    },
+    "procedure": {
+        "prefix": "proc",
+        "body": [
+            "proc ${1:procedureName} {${2:arguments}} {",
+            "\t$0",
+            "}"
+        ],
+        "description": "procedure block"
+    }
 }
