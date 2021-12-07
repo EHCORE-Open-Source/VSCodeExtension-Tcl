@@ -6,6 +6,69 @@
         ],
         "description": "catch exceptions"
     },
+    "evalute 1 run time": {
+        "prefix": "time",
+        "body": [
+            "time {",
+            "\t$0",
+            "}"
+        ],
+        "description": "running time estimation"
+    },
+    "evalute N run time": {
+        "prefix": "time",
+        "body": [
+            "time {",
+            "\t$0",
+            "} {${1:count}}"
+        ],
+        "description": "running time estimation"
+    },
+    "procedure": {
+        "prefix": "proc",
+        "body": [
+            "proc ${1:name} {${2:arguments}} {",
+            "\t$0",
+            "}"
+        ],
+        "description": "procedure statement"
+    },
+    "procedure with arguments and default values": {
+        "prefix": "proc",
+        "body": [
+            "proc ${1:name} {${2:{${3:argument} ${4:defaultValue}\\} ${5:arguments}}} {",
+            "\t$0",
+            "}"
+        ],
+        "description": "procedure statement"
+    },
+    "variadic procedure without other arguments": {
+        "prefix": "proc",
+        "body": [
+            "proc ${1:name} args {",
+            "\t$0",
+            "}"
+        ],
+        "description": "procedure statement"
+    },
+    "variadic procedure with arguments": {
+        "prefix": "proc",
+        "body": [
+            "proc ${1:name} {${2:arguments} args}} {",
+            "\t$0",
+            "}"
+        ],
+        "description": "procedure statement"
+    },
+    "variadic procedure with arguments and default values": {
+        "prefix": "proc",
+        "body": [
+            "proc ${1:name} {${2:${3:{${4:argument} ${5:defaultValue}\\} ${6:arguments}} args}} {",
+            "\t$0",
+            "}"
+        ],
+        "description": "procedure statement"
+    },
     "if": {
         "prefix": "if",
         "body": [
@@ -90,6 +153,31 @@
         ],
         "description": "if-else statement"
     },
+    "switch-case without default": {
+        "prefix": "switch",
+        "body": [
+            "switch ${1:expression} {",
+            "\t${2:case} {",
+            "\t\t$3",
+            "\t}",
+            "}"
+        ],
+        "description": "switch-case statement"
+    },
+    "switch-case with default": {
+        "prefix": "switch",
+        "body": [
+            "switch ${1:expression} {",
+            "\t${2:case} {",
+            "\t\t$3",
+            "\t}",
+            "\tdefault {",
+            "\t\t$0",
+            "\t}",
+            "}"
+        ],
+        "description": "switch-case statement"
+    },
     "for-loop (general)": {
         "prefix": "for",
         "body": [
@@ -125,14 +213,5 @@
             "}"
         ],
         "description": "while-loop statement"
-    },
-    "procedure": {
-        "prefix": "proc",
-        "body": [
-            "proc ${1:procedureName} {${2:arguments}} {",
-            "\t$0",
-            "}"
-        ],
-        "description": "procedure block"
     }
 }
