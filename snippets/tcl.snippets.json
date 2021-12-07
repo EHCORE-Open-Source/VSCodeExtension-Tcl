@@ -2,7 +2,7 @@
     "if": {
         "prefix": "if",
         "body": [
-            "if {${1:boolean_expression}} {",
+            "if {${1:condition}} {",
             "\t$0",
             "}"
         ],
@@ -32,6 +32,17 @@
         ],
         "description": "if-else statement"
     },
+    "if (explicit)": {
+        "prefix": "if",
+        "body": [
+            "if {",
+            "\t${1:condition}",
+            "} then {",
+            "\t$0",
+            "}"
+        ],
+        "description": "if-else statement"
+    },
     "elseif": {
         "prefix": "elseif",
         "body": [
@@ -39,7 +50,18 @@
             "\t$0",
             "}"
         ],
-        "description": "elseif statement"
+        "description": "if-else statement"
+    },
+    "elseif-else": {
+        "prefix": "elseif",
+        "body": [
+            "elseif {${1:condition}} {",
+            "\t$2",
+            "} else {",
+            "\t$0",
+            "}"
+        ],
+        "description": "if-else statement"
     },
     "else": {
         "prefix": "else",
@@ -48,25 +70,34 @@
             "\t$0",
             "}"
         ],
-        "description": "else statement"
+        "description": "if-else statement"
     },
-    "for loop (general)": {
+    "for-loop (general)": {
         "prefix": "for",
         "body": [
-            "for {set ${1:i} 0} {${1:i} < ${2:endCondition}} {incr ${1:i}} {",
+            "for {set ${1:i} 0} {${1:i} < ${2:endValue}} {incr ${1:i}} {",
             "\t$0",
             "}"
         ],
-        "description": "for loop iteration"
+        "description": "for-loop statement"
     },
-    "for loop (standard)": {
+    "for-loop (standard)": {
         "prefix": "for",
         "body": [
             "for {${1:initialization}} {${2:condition}} {${3:increment}} {",
             "\t$0",
             "}"
         ],
-        "description": "for loop iteration"
+        "description": "for-loop statement"
+    },
+    "while-loop": {
+        "prefix": "while",
+        "body": [
+            "for {${1:condition}} {",
+            "\t$0",
+            "}"
+        ],
+        "description": "while-loop statement"
     },
     "procedure": {
         "prefix": "proc",
