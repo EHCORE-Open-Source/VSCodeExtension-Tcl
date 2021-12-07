@@ -1,4 +1,11 @@
 {
+    "catch exceptions": {
+        "prefix": "catch",
+        "body": [
+            "catch {${1:script}} ${0:result}"
+        ],
+        "description": "catch exceptions"
+    },
     "if": {
         "prefix": "if",
         "body": [
@@ -101,10 +108,19 @@
         ],
         "description": "for-loop statement"
     },
-    "while-loop": {
+    "while-loop (infinite)": {
         "prefix": "while",
         "body": [
-            "for {${1:condition}} {",
+            "while {1} {",
+            "\t$0",
+            "}"
+        ],
+        "description": "while-loop statement"
+    },
+    "while-loop (standard)": {
+        "prefix": "while",
+        "body": [
+            "while {${1:condition}} {",
             "\t$0",
             "}"
         ],
