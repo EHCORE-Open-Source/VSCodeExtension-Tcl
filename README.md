@@ -1,19 +1,19 @@
 # Tcl Syntax Highlighting README
-The extension is help to parse Tcl output files *.tcl.
-testing the change
+- The extension is help to parse Tcl output files *.tcl.
 ## Features
 > Tip: *.tcl data highlighting.
 ## Requirements
-Support Tcl output files.
+> Support Tcl output files.
 ## Extension Settings
-No context.
+> No context.
 ## Known Issues
-No context.
+> No context.
 ## Release Notes
-First release for 0.0.1.
+> In development.
 ### 0.0.1
-First release.
+- First release.
+- Support the syntax highlighting of basic keywords
+- Use JSON format to define command auto-completion.
 -----------------------------------------------------------------------------------------------------------
-## Working with Markdown
 ### For more information
 **Enjoy!**
