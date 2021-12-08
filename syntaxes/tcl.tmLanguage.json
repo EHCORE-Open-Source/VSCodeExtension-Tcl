@@ -19,9 +19,77 @@
         "keywords": {
             "patterns": [
                 {
-                    "name": "keyword.control.tcl",
-                    "match": "\\b(after|append|apply|argc|argv|argv0|array|auto_execok|auto_import|auto_load|auto_mkindex|auto_path|auto_qualify|auto_reset|bgerror|binary|break|catch|cd|chan|clock|close|concat|continue|coroutine|dde|dict|else|encoding|env|eof|error|errorCode|errorInfo|eval|exec|exit|expr|fblocked|fconfigure|fcopy|file|fileevent|filename|flush|for|foreach|format|gets|glob|global|history|http|if|incr|info|interp|join|lappend|lassign|lindex|linsert|list|llength|lmap|load|lrange|lrepeat|lreplace|lreverse|lsearch|lset|lsort|mathfunc|mathop|memory|msgcat|my|namespace|next|nextto|oo::class|oo::copy|oo::define|oo::objdefine|oo::object|open|package|parray|pid|pkg::create|pkg_mkIndex|platform|platform::shell|proc|puts|pwd|re_syntax|read|refchan|regexp|registry|regsub|rename|return|safe|scan|seek|self|set|socket|source|split|string|subst|switch|tailcall|Tcl|tcl::prefix|tcl_endOfWord|tcl_findLibrary|tcl_interactive|tcl_library|tcl_nonwordchars|tcl_patchLevel|tcl_pkgPath|tcl_platform|tcl_precision|tcl_rcFileName|tcl_startOfNextWord|tcl_startOfPreviousWord|tcl_traceCompile|tcl_traceExec|tcl_version|tcl_wordBreakAfter|tcl_wordBreakBefore|tcl_wordchars|tcltest|tell|throw|time|timerate|tm|trace|transchan|try|unknown|unload|unset|update|uplevel|upvar|variable|vwait|while|yield|yieldto|zlib)\\b"
+                    "match": "(^\\s*|\\[\\s*)(\\b(itclvars)\\b)",
+                    "captures": {
+                        "2":{
+                            "name": "entity.name.namespace.tcl"
+                        }
+                    }
+                },
+                {
+                    "match": "(^\\s*|\\[\\s*)(itcl)(::)?(code|delegation|extendedclass|local|widget|body|component|delete|find|option|class|configbody|ensemble|is|scope)?",
+                    "captures": {
+                        "2":{
+                            "name":"entity.name.namespace.tcl"
+                        },
+                        "4":{
+                            "name":"keyword.control.tcl"
+                        }
+                    }
+                },
+                {
+                    "match": "(^\\s*|\\[\\s*)(oo)(::)(class|copy|define|objdefine|object)",
+                    "captures": {
+                        "2":{
+                            "name":"entity.name.namespace.tcl"
+                        },
+                        "4":{
+                            "name":"keyword.control.tcl"
+                        }
+                    }
+                },
+                {
+                    "match": "(^\\s*|\\[\\s*)(tcl)(::)(prefix)",
+                    "captures": {
+                        "2":{
+                            "name":"entity.name.namespace.tcl"
+                        },
+                        "4":{
+                            "name":"keyword.control.tcl"
+                        }
+                    }
+                },
+                {
+                    "match": "(^\\s*|\\[\\s*)(pkg)(::)(create)",
+                    "captures": {
+                        "2":{
+                            "name":"entity.name.namespace.tcl"
+                        },
+                        "4":{
+                            "name":"keyword.control.tcl"
+                        }
+                    }
+                },
+                {
+                    "match": "(^\\s*|\\[\\s*)(platform)(::)(shell)",
+                    "captures": {
+                        "2":{
+                            "name":"entity.name.namespace.tcl"
+                        },
+                        "4":{
+                            "name":"keyword.control.tcl"
+                        }
+                    }
+                },
+                {
+                    "match": "(^\\s*|\\[\\s*)(\\b(after|append|apply|argc|argv|argv0|array|auto_execok|auto_import|auto_load|auto_mkindex|auto_path|auto_qualify|auto_reset|bgerror|binary|break|catch|cd|chan|clock|close|concat|continue|coroutine|dde|dict|else|encoding|env|eof|error|errorCode|errorInfo|eval|exec|exit|expr|fblocked|fconfigure|fcopy|file|fileevent|filename|flush|for|foreach|format|gets|glob|global|history|http|if|incr|info|interp|join|lappend|lassign|lindex|linsert|list|llength|lmap|load|lrange|lrepeat|lreplace|lreverse|lsearch|lset|lsort|mathfunc|mathop|memory|msgcat|my|namespace|next|nextto|open|package|parray|pid|pkg_mkIndex|platform|proc|puts|pwd|re_syntax|read|refchan|regexp|registry|regsub|rename|return|safe|scan|seek|self|set|socket|source|split|string|subst|switch|tailcall|Tcl|tcl_endOfWord|tcl_findLibrary|tcl_interactive|tcl_library|tcl_nonwordchars|tcl_patchLevel|tcl_pkgPath|tcl_platform|tcl_precision|tcl_rcFileName|tcl_startOfNextWord|tcl_startOfPreviousWord|tcl_traceCompile|tcl_traceExec|tcl_version|tcl_wordBreakAfter|tcl_wordBreakBefore|tcl_wordchars|tcltest|tell|throw|time|timerate|tm|trace|transchan|try|unknown|unload|unset|update|uplevel|upvar|variable|vwait|while|yield|yieldto|zlib)\\b)",
+                    "captures": {
+                        "2":{
+                            "name": "keyword.control.tcl"
+                        }
+                    }
                 }
+                
             ]
         },
         "escape": {

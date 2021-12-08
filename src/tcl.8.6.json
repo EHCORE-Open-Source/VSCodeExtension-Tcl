@@ -171,6 +171,56 @@
             "name": "interp"
         },
         {
+            "name": "itcl:",
+            "items": [
+                {
+                    "name": "code"
+                },
+                {
+                    "name": "delegation"
+                },
+                {
+                    "name": "extendedclass"
+                },
+                {
+                    "name": "local"
+                },
+                {
+                    "name": "widget"
+                },
+                {
+                    "name": "body"
+                },
+                {
+                    "name": "component"
+                },
+                {
+                    "name": "delete"
+                },
+                {
+                    "name": "find"
+                },
+                {
+                    "name": "option"
+                },
+                {
+                    "name": "class"
+                },
+                {
+                    "name": "configbody"
+                },
+                {
+                    "name": "ensemble"
+                },
+                {
+                    "name": "is"
+                },
+                {
+                    "name": "scope"
+                }
+            ]
+        },
+        {
             "name": "join"
         },
         {
@@ -243,19 +293,24 @@
             "name": "nextto"
         },
         {
-            "name": "oo::class"
-        },
-        {
-            "name": "oo::copy"
-        },
-        {
-            "name": "oo::define"
-        },
-        {
-            "name": "oo::objdefine"
-        },
-        {
-            "name": "oo::object"
+            "name": "oo:",
+            "items": [
+                {
+                    "name": "class"
+                },
+                {
+                    "name": "copy"
+                },
+                {
+                    "name": "define"
+                },
+                {
+                    "name": "objdefine"
+                },
+                {
+                    "name": "object"
+                }
+            ]
         },
         {
             "name": "open"
@@ -270,7 +325,12 @@
             "name": "pid"
         },
         {
-            "name": "pkg::create"
+            "name": "pkg:",
+            "items": [
+                {
+                    "name": "create"
+                }
+            ]
         },
         {
             "name": "pkg_mkIndex"
@@ -279,7 +339,12 @@
             "name": "platform"
         },
         {
-            "name": "platform::shell"
+            "name": "platform:",
+            "items": [
+                {
+                    "name": "shell"
+                }
+            ]
         },
         {
             "name": "proc"

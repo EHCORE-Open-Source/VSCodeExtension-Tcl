@@ -1,3 +1,35 @@
+itcl::code
+itcl::local
+itclvars
+itcl
+oo::class
+oo::copy
+tcl::prefix
+pkg::create
+platform::shell
+platform 
+set mDict[itclvars create]
+set mDict[itcl create]
+set mDict[itcl::body create]
+set mDict[oo::class create]
+set mDict[tcl::prefix create]
+set mDict[pkg::create create]
+set mDict[platform::shell create]
+set mDict[platform create]
+
+
+set variable {1024'h0}
+set variable2 {1024'hdeadbeef}
+set mDict[dict create]
+dict append mDict top.mem_a {file /path/to/a.mem}
+dict append mDict top.mem_b {pattern 32'hdeadbeef}
+dict append mDict top.mem_c {file /path/to/c.mem}
+dict append mDict top.mem_d {buffer variable}
+dict append mDict top.mem_e {buffer variable2}
+memory -load mDict
+memory -store mDict
+
+
 puts x 1;# this is a comment
 # this is a comment
 
