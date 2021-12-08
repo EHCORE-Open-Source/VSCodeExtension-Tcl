@@ -258,5 +258,14 @@
             "}"
         ],
         "description": "foreach statement"
+    },
+    "namespace eval": {
+        "prefix": "namespace",
+        "body": [
+            "namespace eval namespace {",
+            "\t$0",
+            "}"
+        ],
+        "description": "namespace eval"
     }
 }

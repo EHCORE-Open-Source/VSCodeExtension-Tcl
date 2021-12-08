@@ -17,6 +17,10 @@ set mDict[pkg::create create]
 set mDict[platform::shell create]
 set mDict[platform create]
 
+namespace code 
+namespace origin
+namespace tail
+namespace code
 
 set variable {1024'h0}
 set variable2 {1024'hdeadbeef}
