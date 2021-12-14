@@ -1,7 +1,7 @@
 set variable {1024'h0}
 set variable2 {1024'hdeadbeef}
 set mDict[dict create]
-dict append mDict top.mem_a {file /path/to/a.mem}
+dict append mDict1 top.mem_a {file /path/to/a.mem}
 dict append mDict top.mem_b {pattern 32'hdeadbeef}
 dict append mDict top.mem_c {file /path/to/c.mem}
 dict append mDict top.mem_d {buffer variable}
@@ -9,6 +9,17 @@ dict append mDict top.mem_e {buffer variable2}
 memory -load mDict
 memory -store mDict
 
+namespace eval tcltest {
+    set a = 12;
+}
+
+proc name {arguments} {
+    
+}
+
+proc name {arguments} {
+    
+}
 
 puts x 1;# this is a comment
 # this is a comment
