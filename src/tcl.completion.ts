@@ -1,9 +1,11 @@
 import * as vscode from 'vscode';
 import json from './tcl.8.6.json';
+
 interface ICompletionItemContent {
     name: string;
 }
-export function completion(context: vscode.ExtensionContext) {
+
+export function exec(context: vscode.ExtensionContext) {
     const provider = vscode.languages.registerCompletionItemProvider(
         { language: 'tcl' },
         {
