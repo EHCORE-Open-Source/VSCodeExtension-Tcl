@@ -248,26 +248,28 @@ class DocumentSymbolProvider implements vscode.DocumentSymbolProvider {
 			let symbols: vscode.DocumentSymbol[] = [];
 			let nodes = [symbols]
 			let inside_marker = false
-			let symbolkind_marker = vscode.SymbolKind.Field
+			//let symbolkind_marker = vscode.SymbolKind.Field
+			let symbolkind_marker = vscode.SymbolKind.Namespace
 
 			for (var i = 0; i < document.lineCount; i++) {
 				var line = document.lineAt(i);
 				let tokens = line.text.split(" ")
 
-				if (line.text.match(/^p/)) {
+				if (line.text.match(/namespace/)) {
 					let marker_symbol = new vscode.DocumentSymbol(
-						this.format(tokens[0]) + " " + tokens[1],
-						'Keywords',
+						this.format(tokens[2]),
+						this.format(tokens[1]),
 						symbolkind_marker,
 						line.range, line.range)
 					nodes[nodes.length - 1].push(marker_symbol)
-					if (!inside_marker) {
-						nodes.push(marker_symbol.children)
-						inside_marker = true
-					}
+					// if (!inside_marker) {
+					// 	nodes.push(marker_symbol.children)
+					// 	inside_marker = true
+					// }
 				}
 			}
 			resolve(symbols);
 		});
 	}
 }
+

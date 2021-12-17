@@ -19,15 +19,18 @@
         "keywords": {
             "patterns": [
                 {
-                    "match": "(^\\s*|\\[\\s*)(\\b(itclvars)\\b)",
+                    "match": "(^\\s*(set|dict|memory))(\\s*)?(-?\\w+)?",
                     "captures": {
                         "2":{
-                            "name": "entity.name.namespace.tcl"
+                            "name":"storage.type.function.tcl"
+                        },
+                        "4":{
+                            "name":"variable.other.local.tcl"
                         }
                     }
                 },
                 {
-                    "match": "(^\\s*|\\[\\s*)(itcl)(::)?(code|delegation|extendedclass|local|widget|body|component|delete|find|option|class|configbody|ensemble|is|scope)?",
+                    "match": "(^\\s*|\\[\\s*)(itcl)(::)(code|delegation|extendedclass|local|widget|body|component|delete|find|option|class|configbody|ensemble|is|scope)",
                     "captures": {
                         "2":{
                             "name":"entity.name.namespace.tcl"
@@ -82,7 +85,7 @@
                     }
                 },
                 {
-                    "match": "(^\\s*|\\[\\s*)(\\b(after|append|apply|argc|argv|argv0|array|auto_execok|auto_import|auto_load|auto_mkindex|auto_path|auto_qualify|auto_reset|bgerror|binary|break|catch|cd|chan|clock|close|concat|continue|coroutine|dde|dict|else|encoding|env|eof|error|errorCode|errorInfo|eval|exec|exit|expr|fblocked|fconfigure|fcopy|file|fileevent|filename|flush|for|foreach|format|gets|glob|global|history|http|if|incr|info|interp|join|lappend|lassign|lindex|linsert|list|llength|lmap|load|lrange|lrepeat|lreplace|lreverse|lsearch|lset|lsort|mathfunc|mathop|memory|msgcat|my|next|nextto|open|package|parray|pid|pkg_mkIndex|platform|proc|puts|pwd|re_syntax|read|refchan|regexp|registry|regsub|rename|return|safe|scan|seek|self|set|socket|source|split|string|subst|switch|tailcall|Tcl|tcl_endOfWord|tcl_findLibrary|tcl_interactive|tcl_library|tcl_nonwordchars|tcl_patchLevel|tcl_pkgPath|tcl_platform|tcl_precision|tcl_rcFileName|tcl_startOfNextWord|tcl_startOfPreviousWord|tcl_traceCompile|tcl_traceExec|tcl_version|tcl_wordBreakAfter|tcl_wordBreakBefore|tcl_wordchars|tcltest|tell|throw|time|timerate|tm|trace|transchan|try|unknown|unload|unset|update|uplevel|upvar|variable|vwait|while|yield|yieldto|zlib)\\b)",
+                    "match": "(^\\s*|\\[\\s*)(\\b(after|append|apply|argc|argv|argv0|array|auto_execok|auto_import|auto_load|auto_mkindex|auto_path|auto_qualify|auto_reset|bgerror|binary|break|catch|cd|chan|clock|close|concat|continue|coroutine|dde|else|encoding|env|eof|error|errorCode|errorInfo|eval|exec|exit|expr|fblocked|fconfigure|fcopy|file|fileevent|filename|flush|for|foreach|format|gets|glob|global|history|http|if|incr|info|interp|join|lappend|lassign|lindex|linsert|list|llength|lmap|load|lrange|lrepeat|lreplace|lreverse|lsearch|lset|lsort|mathfunc|mathop|msgcat|my|next|nextto|open|package|parray|pid|pkg_mkIndex|platform|proc|puts|pwd|re_syntax|read|refchan|regexp|registry|regsub|rename|return|safe|scan|seek|self|socket|source|split|string|subst|switch|tailcall|Tcl|tcl_endOfWord|tcl_findLibrary|tcl_interactive|tcl_library|tcl_nonwordchars|tcl_patchLevel|tcl_pkgPath|tcl_platform|tcl_precision|tcl_rcFileName|tcl_startOfNextWord|tcl_startOfPreviousWord|tcl_traceCompile|tcl_traceExec|tcl_version|tcl_wordBreakAfter|tcl_wordBreakBefore|tcl_wordchars|tcltest|tell|throw|time|timerate|tm|trace|transchan|try|unknown|unload|unset|update|uplevel|upvar|variable|vwait|while|yield|yieldto|zlib)([\\s\\]]|$))",
                     "captures": {
                         "2":{
                             "name":"keyword.control.tcl"
@@ -90,13 +93,24 @@
                     }
                 },
                 {
-                    "match": "(^\\s*namespace)(\\s+)(children|code|current|delete|ensemble|eval|exists|export|forget|import|inscope|origin|parent|path|qualifiers|tail|upvar|unknown|which)",
+                    "match": "(^\\s*namespace)(\\s+)(children|code|current|delete|ensemble|eval|exists|export|forget|import|inscope|origin|parent|path|qualifiers|tail|upvar|unknown|which)(\\s*)?(\\w+)?(\\s*)?",
                     "captures": {
                         "1":{
-                            "name":"entity.name.function.tcl"
+                            "name":"storage.type.function.tcl"
                         },
                         "3":{
-                            "name":"storage.type.function.tcl"
+                            "name":"keyword.control.tcl"
+                        },
+                        "5":{
+                            "name":"entity.name.function.tcl"
+                        }
+                    }
+                },
+                {
+                    "match": "(^\\s*\\w+)(::)",
+                    "captures": {
+                        "1":{
+                            "name": "entity.name.namespace.tcl"
                         }
                     }
                 }

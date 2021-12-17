@@ -262,7 +262,7 @@
     "namespace eval": {
         "prefix": "namespace",
         "body": [
-            "namespace eval namespace {",
+            "namespace eval ${1:namespace} {",
             "\t$0",
             "}"
         ],
