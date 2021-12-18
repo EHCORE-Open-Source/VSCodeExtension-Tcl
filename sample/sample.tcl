@@ -8,19 +8,40 @@ tcl::prefix
 pkg::create
 platform::shell
 platform 
-set mDict[itclvars create]
-set mDict[itcl create]
+
 set mDict[itcl::body create]
 set mDict[oo::class create]
 set mDict[tcl::prefix create]
 set mDict[pkg::create create]
 set mDict[platform::shell create]
-set mDict[platform create]
+abv::
+oo::class
+platform::shell
 
-namespace code 
-namespace origin
-namespace tail
-namespace code
+namespace eval test {
+
+}
+namespace eval counter {
+    
+}
+
+
+
+
+
+namespace code namespace1
+namespace origin namespace2
+namespace tail namespace3
+{
+
+}
+
+set mDict[itclvars(白) create]
+set mDict[itcl(白) create]
+set(藍) mDict(淡藍)[platform create]
+
+kkk(青)::
+counter(青)::
 
 set variable {1024'h0}
 set variable2 {1024'hdeadbeef}
@@ -30,8 +51,8 @@ dict append mDict top.mem_b {pattern 32'hdeadbeef}
 dict append mDict top.mem_c {file /path/to/c.mem}
 dict append mDict top.mem_d {buffer variable}
 dict append mDict top.mem_e {buffer variable2}
-memory -load mDict
-memory -store mDict
+
+
 
 
 puts x 1;# this is a comment

@@ -8,7 +8,8 @@
 		"rootDir": "src",
 		"strict": true,
 		"resolveJsonModule": true,
-        "esModuleInterop": true
+        "esModuleInterop": true,
+		"strictNullChecks": false
 	},
 	"exclude": ["node_modules", ".vscode-test"]
 }
