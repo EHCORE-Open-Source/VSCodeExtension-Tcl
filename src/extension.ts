@@ -1,8 +1,10 @@
 import * as vscode from 'vscode';
 import * as tcl from './tcl.completion';
+import { TclTaskProvider } from './tcl.taskProvider';
 
 const tokenTypes = new Map<string, number>();
 const tokenModifiers = new Map<string, number>();
+let tclTaskProvider: vscode.Disposable | undefined;
 
 const legend = (function () {
 	const tokenTypesLegend = [
@@ -21,9 +23,18 @@ const legend = (function () {
 	return new vscode.SemanticTokensLegend(tokenTypesLegend, tokenModifiersLegend);
 })();
 
-export function activate(context: vscode.ExtensionContext) {
+export function activate(context: vscode.ExtensionContext) {	
 	context.subscriptions.push(vscode.languages.registerDocumentSemanticTokensProvider({ language: 'tcl'}, new DocumentSemanticTokensProvider(), legend));
-	tcl.completion(context);
+	tcl.completion(context);	
+
+	// 註冊工作提供者	
+	tclTaskProvider = vscode.tasks.registerTaskProvider(TclTaskProvider.Type, new TclTaskProvider());
+}
+
+export function deactivate(): void {	
+	if (tclTaskProvider) {
+		tclTaskProvider.dispose();
+	}
 }
 
 interface IParsedToken {
