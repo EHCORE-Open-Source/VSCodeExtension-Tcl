@@ -47,7 +47,26 @@
                 "language": "tcl",
                 "path": "./snippets/tcl.snippets.json"
             }
-        ]
+        ],
+        "taskDefinitions": [
+			{
+                "type": "tclsh",
+                "required": [
+                    "fileName",
+					"path"
+                ],
+                "properties": {
+                    "fileName": {
+                        "type": "string",
+                        "description": "Tcl file"
+                    },
+					"path": {
+                        "type": "string",
+                        "description": "Tcl file path"
+                    }
+                }
+            }
+		]
     },
     "devDependencies": {
         "@types/node": "^16.9.1",
